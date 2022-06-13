@@ -90,7 +90,7 @@ const App = () => {
     setIsLoading(true);
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);
-      if(await web3.eth.getChainId() !== 4){
+      if(!(await web3.eth.getChainId() !== 4)){
         const PUBLIC_KEY = await connectWallet();
         if (PUBLIC_KEY) {
           const ipfsData = await uploadToIPFS();
